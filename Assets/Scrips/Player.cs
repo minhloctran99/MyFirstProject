@@ -1,14 +1,19 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int level = 10;
+    public string gender = "Male";
+   
     void Start()
     {
+        
         Debug.Log("Player started");
+        Debug.Log("Player Gender:" + gender);
+        Debug.Log("Player Level:" + level);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         
