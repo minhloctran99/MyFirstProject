@@ -12,6 +12,9 @@ public class PlayerHealth : MonoBehaviour
 
     private int currentHealth;
 
+    [SerializeField]
+    private HealthTextUI healthTextUI;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -22,6 +25,11 @@ public class PlayerHealth : MonoBehaviour
         if (healthBarUI != null)
         {
             healthBarUI.SetMaxHealth(maxHealth);
+        }
+
+        if (healthTextUI != null)
+        {
+            healthTextUI.SetHealthText(currentHealth, maxHealth);
         }
     }
 
@@ -39,6 +47,11 @@ public class PlayerHealth : MonoBehaviour
         if (healthBarUI != null)
         {
             healthBarUI.SetHealth(currentHealth);
+        }
+
+        if (healthTextUI != null)
+        {
+            healthTextUI.SetHealthText(currentHealth, maxHealth);
         }
 
         if (currentHealth == 0)
