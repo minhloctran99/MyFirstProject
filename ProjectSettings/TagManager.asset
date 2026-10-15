@@ -7,6 +7,8 @@ TagManager:
   - Coin
   - Enemy
   - Wall
+  - Gem
+  - Hazard
   layers:
   - Default
   - TransparentFX
