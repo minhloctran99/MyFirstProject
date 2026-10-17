@@ -40,9 +40,12 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
 
         // 3. Cập nhật Final Score trước khi bật Panel
-        if (finalScoreText != null && gameScore != null)
+        if (gameScore != null && finalScoreText != null)
         {
-            finalScoreText.text = "Final Score: " + gameScore.Score;
+            finalScoreText.SetText(
+            "Final Score: {0:0}",
+            gameScore.Score
+            );
         }
 
         if (gameOverPanel != null)
@@ -53,8 +56,15 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1f;
         SceneManager
         .LoadScene(SceneManager
-        .GetActiveScene().buildIndex);
+        .GetActiveScene().name);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenuScene");
     }
 }

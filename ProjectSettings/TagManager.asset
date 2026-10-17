@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Gem
   - Hazard
+  - Potion
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Enemy
   - Coin
   - Wall
-  - 
+  - Potion
   - 
   - 
   - 
