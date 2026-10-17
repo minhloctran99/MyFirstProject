@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    private int scoreReward = 20;
+    private int scoreReward = 100;
 
     [SerializeField]
     private GameScore gameScore;
@@ -28,9 +28,15 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
-        enemySpawner = FindFirstObjectByType<EnemySpawner>();
+        // enemySpawner = FindFirstObjectByType<EnemySpawner>();
+        gameScore = FindFirstObjectByType<GameScore>();
         rb = GetComponent<Rigidbody2D>();
         enemyMovement = GetComponent<EnemyMovement>();
+    }
+
+    public void SetSpawner(EnemySpawner spawner)
+    {
+        enemySpawner = spawner;
     }
     public void TakeDamage(int damage, Vector2 attackerPosition)
     {
@@ -46,6 +52,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth == 0)
         {
             Die();
+            return;
         }
         ApplyKnockback(attackerPosition);
     }

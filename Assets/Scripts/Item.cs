@@ -1,13 +1,14 @@
-using UnityEngine;
+using System.Collections.Generic;
 
-public class Item : MonoBehaviour
+public class Item
 {
-    public string itemName = "Health Potion";
-    public int healAmount = 50;
-
-    void Start()
+    public int Id { get; set; }
+    public string ItemName { get; set; }
+    public int Quantity { get; set; }
+    public Item(int id, string itemName, int quantity)
     {
-        Debug.Log("Item Name: " + itemName);
-        Debug.Log("Heal Amount: " + healAmount);
+        Id = id;
+        ItemName = itemName;
+        Quantity = quantity;
     }
 }
