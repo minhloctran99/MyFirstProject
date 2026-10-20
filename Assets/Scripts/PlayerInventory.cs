@@ -8,6 +8,9 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField]
     private InventoryUI inventoryUI;
 
+    [SerializeField]
+    private int maxSlots = 5; // Bài 3-Chương 8: Giới hạn tối đa 5 loại item khác nhau
+
     private int coinCount;
 
     private List<Item> items = new();
@@ -63,20 +66,39 @@ public class PlayerInventory : MonoBehaviour
         return null;
     }
 
+    // Bài 4: Kiểm tra xem inventory có đủ số lượng item theo id yêu cầu hay không
+    public bool HasItem(int id, int amount)
+    {
+        if (amount <= 0) return false;
+
+        Item item = FindItem(id);
+        if (item == null) return false;
+
+        return item.Quantity >= amount;
+    }
+
     public void AddItem(Item newItem)
     {
-        if(newItem == null) return;
+        if (newItem == null) return;
         Item existingItem = FindItem(newItem.Id);
 
         if (existingItem != null)
         {
+            // Nếu item đã tồn tại -> cộng dồn số lượng (stack)
             existingItem.Quantity += newItem.Quantity;
-            // return;
         }
         else
         {
+            // Bài 3: Nếu là item mới hoàn toàn, kiểm tra xem đã đạt giới hạn maxSlots chưa
+            if (items.Count >= maxSlots)
+            {
+                Debug.LogWarning("Inventory is full! Cannot add new item type.");
+                return; // Từ chối thêm item mới nếu hết slot
+            }
+
             items.Add(newItem);
         }
+
         SaveInventory();
         RefreshUI();
     }
@@ -106,6 +128,15 @@ public class PlayerInventory : MonoBehaviour
         if (!removed) return;
 
         playerHealth.Heal(25);
+    }
+
+    public void UseLargeHealthPotion(PlayerHealth playerHealth)
+    {
+        const int largePotionId = 5;
+        bool removed = RemoveItem(largePotionId, 1);
+        if (!removed) return;
+
+        playerHealth.Heal(50);
     }
 
     private void RefreshUI()

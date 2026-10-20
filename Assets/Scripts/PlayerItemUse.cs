@@ -20,5 +20,12 @@ public class PlayerItemUse : MonoBehaviour
                 inventory.UseHealthPotion(playerHealth);
             }
         }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            if (inventory != null && playerHealth != null)
+            {
+                inventory.UseLargeHealthPotion(playerHealth);
+            }
+        }
     }
 }
