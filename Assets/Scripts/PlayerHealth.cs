@@ -4,7 +4,6 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
     private int maxHealth = 100;
-
     [SerializeField]
     private HealthBarUI healthBarUI;
 
@@ -17,6 +16,24 @@ public class PlayerHealth : MonoBehaviour
     // {
     //     currentHealth = maxHealth;
     // }
+    public int CurrentHealth
+    {
+        get{return currentHealth; }
+    }
+
+    public void SetHealth(int health)
+    {
+        currentHealth = Mathf.Clamp(health, 0, maxHealth);
+        SaveHealth();
+        if(healthBarUI != null)
+        {
+            healthBarUI.SetHealth(currentHealth);
+        }
+        if(currentHealth == 0 && gameObject.activeSelf)
+        {
+            Die();
+        }
+    }
 
     private void Start()
     {
