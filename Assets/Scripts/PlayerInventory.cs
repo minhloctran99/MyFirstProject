@@ -27,10 +27,12 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
+        LoadInventory();
         if (coinCounterUI != null)
         {
             coinCounterUI.SetCoinCount(coinCount);
         }
+        RefreshUI();
     }
 
     public void AddCoin(int amount)
@@ -41,7 +43,7 @@ public class PlayerInventory : MonoBehaviour
         }
 
         coinCount += amount;
-
+        SaveInventory();
         if (coinCounterUI != null)
         {
             coinCounterUI.SetCoinCount(coinCount);
@@ -63,6 +65,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(Item newItem)
     {
+        if(newItem == null) return;
         Item existingItem = FindItem(newItem.Id);
 
         if (existingItem != null)
@@ -74,7 +77,7 @@ public class PlayerInventory : MonoBehaviour
         {
             items.Add(newItem);
         }
-
+        SaveInventory();
         RefreshUI();
     }
 
@@ -91,7 +94,7 @@ public class PlayerInventory : MonoBehaviour
         {
             items.Remove(item);
         }
-
+        SaveInventory();
         RefreshUI();
         return true;
     }
@@ -111,6 +114,28 @@ public class PlayerInventory : MonoBehaviour
         {
             inventoryUI.Refresh(items);
         }
+    }
+
+    private void LoadInventory()
+    {
+        if (GameSession.Instance == null)
+        {
+            return;
+        }
+
+        coinCount = GameSession.Instance.CoinCount;
+        items = GameSession.Instance.LoadItems();
+    }
+
+    private void SaveInventory()
+    {
+        if (GameSession.Instance == null)
+        {
+            return;
+        }
+
+        GameSession.Instance.CoinCount = coinCount;
+        GameSession.Instance.SaveItems(items);
     }
 
 }
