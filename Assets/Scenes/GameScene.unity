@@ -130,13 +130,14 @@ GameObject:
   - component: {fileID: 23473890}
   - component: {fileID: 23473889}
   - component: {fileID: 23473888}
+  - component: {fileID: 23473891}
   m_Layer: 10
   m_Name: HealthPotion (3)
   m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &23473888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -214,6 +215,19 @@ Transform:
   - {fileID: 1267788873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &23473891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23473887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleItem
+  uniqueId: 
 --- !u!1 &30600470
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +239,7 @@ GameObject:
   - component: {fileID: 30600473}
   - component: {fileID: 30600472}
   - component: {fileID: 30600471}
+  - component: {fileID: 30600474}
   m_Layer: 8
   m_Name: GoldCoin
   m_TagString: Coin
@@ -342,6 +357,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &30600474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30600470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
+  uniqueId: coin_bronze_01
 --- !u!1 &32870590
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,8 +596,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1420,6 +1448,8 @@ GameObject:
   - component: {fileID: 401933326}
   - component: {fileID: 401933325}
   - component: {fileID: 401933324}
+  - component: {fileID: 401933327}
+  - component: {fileID: 401933328}
   m_Layer: 10
   m_Name: Sword
   m_TagString: Potion
@@ -1504,6 +1534,31 @@ Transform:
   - {fileID: 924764727}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &401933327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401933323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleItem
+  uniqueId: sword_01
+--- !u!114 &401933328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401933323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916768abeb869a747b8b7e635373428b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItemManager
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2127,6 +2182,7 @@ MonoBehaviour:
   gameScore: {fileID: 1155760753}
   gameManager: {fileID: 1155760751}
   playerInventory: {fileID: 811799357}
+  worldItemManager: {fileID: 1893540962}
 --- !u!114 &690517434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,8 +2294,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2555,7 +2611,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 500}
+  m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765458299
 MonoBehaviour:
@@ -3724,13 +3780,14 @@ GameObject:
   - component: {fileID: 997926065}
   - component: {fileID: 997926064}
   - component: {fileID: 997926063}
+  - component: {fileID: 997926066}
   m_Layer: 10
   m_Name: HealthPotion (1)
   m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &997926063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3808,6 +3865,19 @@ Transform:
   - {fileID: 421046533}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &997926066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997926062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleItem
+  uniqueId: 
 --- !u!1 &1004491387
 GameObject:
   m_ObjectHideFlags: 0
@@ -4450,13 +4520,14 @@ GameObject:
   - component: {fileID: 1145440937}
   - component: {fileID: 1145440936}
   - component: {fileID: 1145440935}
+  - component: {fileID: 1145440938}
   m_Layer: 10
   m_Name: HealthPotion (2)
   m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1145440935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4534,6 +4605,19 @@ Transform:
   - {fileID: 1004491388}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1145440938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145440934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleItem
+  uniqueId: 
 --- !u!1 &1155760750
 GameObject:
   m_ObjectHideFlags: 0
@@ -4607,6 +4691,7 @@ GameObject:
   - component: {fileID: 1158803003}
   - component: {fileID: 1158803002}
   - component: {fileID: 1158803001}
+  - component: {fileID: 1158803004}
   m_Layer: 8
   m_Name: SilverCoin
   m_TagString: Coin
@@ -4724,6 +4809,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1158803004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158803000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
+  uniqueId: coin_silver_01
 --- !u!1 &1172258668
 GameObject:
   m_ObjectHideFlags: 0
@@ -5398,8 +5496,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5462,8 +5560,10 @@ GameObject:
   - component: {fileID: 1450696457}
   - component: {fileID: 1450696456}
   - component: {fileID: 1450696455}
+  - component: {fileID: 1450696458}
+  - component: {fileID: 1450696459}
   m_Layer: 10
-  m_Name: HealthPotion
+  m_Name: Lesser Health Potion
   m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5528,7 +5628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
   itemId: 1
-  itemName: HealthPotion
+  itemName: Lesser Health Potion
   quantity: 1
 --- !u!4 &1450696457
 Transform:
@@ -5546,6 +5646,31 @@ Transform:
   - {fileID: 872283677}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1450696458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450696454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
+  uniqueId: potion_lesser_01
+--- !u!114 &1450696459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450696454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916768abeb869a747b8b7e635373428b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItemManager
 --- !u!1 &1555283859
 GameObject:
   m_ObjectHideFlags: 0
@@ -5557,6 +5682,8 @@ GameObject:
   - component: {fileID: 1555283862}
   - component: {fileID: 1555283861}
   - component: {fileID: 1555283860}
+  - component: {fileID: 1555283863}
+  - component: {fileID: 1555283864}
   m_Layer: 10
   m_Name: Key
   m_TagString: Potion
@@ -5641,6 +5768,31 @@ Transform:
   - {fileID: 1229104628}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1555283863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555283859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleItem
+  uniqueId: key_01
+--- !u!114 &1555283864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555283859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916768abeb869a747b8b7e635373428b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItemManager
 --- !u!1 &1599510076
 GameObject:
   m_ObjectHideFlags: 0
@@ -5652,6 +5804,7 @@ GameObject:
   - component: {fileID: 1599510079}
   - component: {fileID: 1599510078}
   - component: {fileID: 1599510077}
+  - component: {fileID: 1599510080}
   m_Layer: 8
   m_Name: BrozenCoin
   m_TagString: Coin
@@ -5769,6 +5922,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1599510080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599510076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
+  uniqueId: coin_golden_01
 --- !u!1 &1622632654
 GameObject:
   m_ObjectHideFlags: 0
@@ -6354,8 +6520,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6845,8 +7011,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7146,6 +7312,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855298913}
   m_CullTransparentMesh: 1
+--- !u!1 &1893540961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1893540963}
+  - component: {fileID: 1893540962}
+  m_Layer: 0
+  m_Name: WorldItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1893540962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893540961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916768abeb869a747b8b7e635373428b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItemManager
+--- !u!4 &1893540963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893540961}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 670.84863, y: 497.23938, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1995321104
 GameObject:
   m_ObjectHideFlags: 0
@@ -7290,6 +7500,8 @@ GameObject:
   - component: {fileID: 2002322356}
   - component: {fileID: 2002322355}
   - component: {fileID: 2002322354}
+  - component: {fileID: 2002322357}
+  - component: {fileID: 2002322358}
   m_Layer: 10
   m_Name: Bow
   m_TagString: Potion
@@ -7374,6 +7586,31 @@ Transform:
   - {fileID: 306594247}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2002322357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002322353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleItem
+  uniqueId: bow_01
+--- !u!114 &2002322358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002322353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916768abeb869a747b8b7e635373428b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItemManager
 --- !u!1 &2022778317
 GameObject:
   m_ObjectHideFlags: 0
@@ -7385,8 +7622,10 @@ GameObject:
   - component: {fileID: 2022778320}
   - component: {fileID: 2022778319}
   - component: {fileID: 2022778318}
+  - component: {fileID: 2022778321}
+  - component: {fileID: 2022778322}
   m_Layer: 10
-  m_Name: LargeHealthPotion
+  m_Name: Greater Health Potion
   m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7450,8 +7689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3494ef98bfe0b74790a6247a8f3732c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
-  itemId: 5
-  itemName: LargeHealthPotion
+  itemId: 2
+  itemName: Greater Health Potion
   quantity: 1
 --- !u!4 &2022778320
 Transform:
@@ -7469,6 +7708,31 @@ Transform:
   - {fileID: 285912187}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2022778321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022778317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d767958389aab645b1cf4aa588f2ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
+  uniqueId: potion_greater_01
+--- !u!114 &2022778322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022778317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916768abeb869a747b8b7e635373428b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItemManager
 --- !u!1 &2083577266
 GameObject:
   m_ObjectHideFlags: 0
@@ -7769,14 +8033,15 @@ SceneRoots:
   - {fileID: 845149172}
   - {fileID: 1155760752}
   - {fileID: 1450696457}
+  - {fileID: 2022778320}
   - {fileID: 997926065}
   - {fileID: 1145440937}
   - {fileID: 23473890}
   - {fileID: 401933326}
   - {fileID: 2002322356}
   - {fileID: 1555283862}
-  - {fileID: 2022778320}
   - {fileID: 482015918}
   - {fileID: 1172258670}
   - {fileID: 1329647205}
   - {fileID: 690517435}
+  - {fileID: 1893540963}
