@@ -15,13 +15,14 @@ GameObject:
   - component: {fileID: 8101120196245554846}
   - component: {fileID: 1296822856708686240}
   - component: {fileID: 8750091995346119306}
+  - component: {fileID: 9016880914565247467}
   m_Layer: 7
   m_Name: NormalEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2751716289591249101
 Transform:
   m_ObjectHideFlags: 0
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 888291782076909421}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00736, y: -0.49312, z: 0}
+  m_LocalPosition: {x: 2, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -69,7 +70,7 @@ MonoBehaviour:
   gameScore: {fileID: 0}
   maxHealth: 50
   knockbackForce: 5
-  knockbackDuration: 0.2
+  knockbackDuration: 1
 --- !u!114 &4343379669896817679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,8 +111,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 3
-  m_AngularDamping: 0.05
+  m_LinearDamping: 10
+  m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -170,6 +171,26 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &9016880914565247467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888291782076909421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcded82c9da454e4eb61b2d66c02a586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  player: {fileID: 0}
+  chaseRange: 3
+  attackRange: 1.2
+  canPatrol: 0
+  pointA: {fileID: 0}
+  pointB: {fileID: 0}
+  patrolAxis: 0
+  patrolDistance: 3
 --- !u!1 &2802133698444402493
 GameObject:
   m_ObjectHideFlags: 0
