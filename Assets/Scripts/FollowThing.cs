@@ -7,6 +7,6 @@ public class FollowThing : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = followthing.transform.position + new Vector3(0, 0, -10);        
+        transform.position = followthing.transform.position + new Vector3(0, 0, -20);        
     }
 }

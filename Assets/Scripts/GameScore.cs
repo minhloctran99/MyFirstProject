@@ -18,12 +18,12 @@ public class GameScore : MonoBehaviour
     public void SetScore(int value)
     {
         score = Mathf.Max(value, 0);
-        if(GameSession.Instance != null)
+        if (GameSession.Instance != null)
         {
             GameSession.Instance.Score = score;
         }
 
-        if(PersistentGameManager.Instance != null)
+        if (PersistentGameManager.Instance != null)
         {
             PersistentGameManager.Instance.UpdateHighScore(score);
         }
@@ -43,20 +43,28 @@ public class GameScore : MonoBehaviour
         }
     }
 
+    // public void AddScore(int amount)
+    // {
+    //     if (amount <= 0) return;
+    //     score += amount;
+    //     SetScore(score + amount);
+    //     if (GameSession.Instance != null)
+    //     {
+    //         GameSession.Instance.Score = score;
+    //     }
+    //     if (PersistentGameManager.Instance != null)
+    //     {
+    //         PersistentGameManager.Instance.UpdateHighScore(score);
+    //     }  
+    //     UpdateUI();
+    // }
+
     public void AddScore(int amount)
     {
         if (amount <= 0) return;
-        score += amount;
+
+        // Cách chuẩn nhất: gọi SetScore với giá trị hiện tại cộng thêm amount
         SetScore(score + amount);
-        if (GameSession.Instance != null)
-        {
-            GameSession.Instance.Score = score;
-        }
-        if (PersistentGameManager.Instance != null)
-        {
-            PersistentGameManager.Instance.UpdateHighScore(score);
-        }  
-        UpdateUI();
     }
 
     private void UpdateUI()

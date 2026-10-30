@@ -1,0 +1,6 @@
+$kind: http-request
+name: GET Leaderboard
+url: ""
+method: GET
+examples: .resources/GET LeaderBoard.resources/examples
+order: 1000

@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:9999/api/scores
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"playerName\": \"Warrior\",\r
+
+    \    \"score\": 3200\r
+
+    }"
+order: 2000

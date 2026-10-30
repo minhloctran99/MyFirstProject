@@ -26,6 +26,8 @@ public class PlayerCombat : MonoBehaviour
     private float attackPointDistance = 0.7f;
     private float nextAttackTime;
 
+    [SerializeField] private Animator animator;
+
     private Vector2 lastMoveDirection = Vector2.right;
 
     private void Start()
@@ -47,6 +49,12 @@ public class PlayerCombat : MonoBehaviour
 
     private void Attack()
     {
+        if (animator != null)
+        {
+            animator.SetBool("IsAttacking", true);
+            animator.SetTrigger("Attack");
+        }
+
         Collider2D[] hits =
             Physics2D.OverlapCircleAll(
                 attackPoint.position,
@@ -65,6 +73,14 @@ public class PlayerCombat : MonoBehaviour
             }
         }
     }
+
+    public void EndAttackAnimation()
+{
+    if (animator != null)
+    {
+        animator.SetBool("IsAttacking", false);
+    }
+}
 
     private void OnDrawGizmosSelected()
     {
